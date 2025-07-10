@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS order_items (
 );
 4. Start the Bot Server
 
-node index.js
+node bot/index.js
 🔊 Server will run on: http://localhost:3978
 
 💬 Test Using Bot Framework Emulator
