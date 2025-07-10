@@ -16,23 +16,21 @@ A production-ready Node.js chatbot built using the **Microsoft Bot Framework**, 
 
 ---
 
-## 🚀 Getting Started
+
 
 ### 1. Clone the Repository
 
-```bash
-git clone https://github.com/your-username/restaurant-bot.git
+
+git clone https://github.com/Pranjal1045/restaurant-bot.git
 cd restaurant-bot
+
 2. Install Dependencies
-bash
-Copy
-Edit
 npm install
+
 3. Set Up MySQL Database
+
 ✅ Create .env file:
-env
-Copy
-Edit
+
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=yourpassword
@@ -45,10 +43,8 @@ STRIPE_SECRET_KEY=your_stripe_secret_key
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
+
 ✅ Import Tables:
-sql
-Copy
-Edit
 -- MySQL Tables
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -105,9 +101,7 @@ CREATE TABLE IF NOT EXISTS order_items (
   FOREIGN KEY (menu_item_id) REFERENCES menu_items(id)
 );
 4. Start the Bot Server
-bash
-Copy
-Edit
+
 node index.js
 🔊 Server will run on: http://localhost:3978
 
@@ -122,16 +116,11 @@ Click "Open Bot"
 
 Enter this URL:
 
-bash
-Copy
-Edit
 http://localhost:3978/api/messages
-No Microsoft App ID or Password needed for local testing.
+
 
 🧪 Example Commands to Test
-plaintext
-Copy
-Edit
+
 signup john john@gmail.com john123
 login john@gmail.com john123
 
