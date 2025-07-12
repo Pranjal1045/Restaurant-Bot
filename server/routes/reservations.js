@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-// ✅ Book a reservation
+//  Book a reservation
 router.post('/book', async (req, res) => {
   const { user_id, restaurant_id, table_number, reservation_time, special_request } = req.body;
 
@@ -27,7 +27,7 @@ router.post('/book', async (req, res) => {
   }
 });
 
-// ✅ View user reservations
+// View user reservations
 router.get('/user/:userId', async (req, res) => {
   const { userId } = req.params;
   try {
@@ -44,7 +44,7 @@ router.get('/user/:userId', async (req, res) => {
   }
 });
 
-// ✅ Cancel a reservation
+//  Cancel a reservation
 router.delete('/:reservationId', async (req, res) => {
   const { reservationId } = req.params;
 

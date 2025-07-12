@@ -10,7 +10,7 @@ class RecommendationService {
   async getRecommendations(context) {
     const user = await this.userAccessor.get(context);
     if (!user) {
-      return await context.sendActivity("🔒 Please log in first to get personalized recommendations.");
+      return await context.sendActivity(" Please log in first to get personalized recommendations.");
     }
 
     // Get user's most frequently ordered menu items
@@ -28,16 +28,16 @@ class RecommendationService {
     );
 
     if (!topItems.length) {
-      return await context.sendActivity("😕 No past orders found to base recommendations on.");
+      return await context.sendActivity(" No past orders found to base recommendations on.");
     }
 
     const cards = topItems.map(item => CardFactory.heroCard(
       item.name,
-      `🍽️ From: *${item.restaurant_name}*\n🔥 You’ve ordered this ${item.count} times!`,
+      ` From: *${item.restaurant_name}*\n You've ordered this ${item.count} times!`,
       [],
       [
-        { type: 'imBack', title: '📋 View Menu', value: `menu for ${item.restaurant_name}` },
-        { type: 'imBack', title: '🛒 Order Again', value: `place order for ${item.restaurant_name}` }
+        { type: 'imBack', title: ' View Menu', value: `menu for ${item.restaurant_name}` },
+        { type: 'imBack', title: ' Order Again', value: `place order for ${item.restaurant_name}` }
       ]
     ));
 

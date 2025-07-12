@@ -21,10 +21,10 @@ class RestaurantBot extends ActivityHandler {
       reservationAccessor,
       userAccessor,
       conversationState,
-      userState      // ✅ Grab userState from accessors
+      userState      
     } = accessors;
 
-    this.conversationState = conversationState;  // ✅ Store for reuse
+    this.conversationState = conversationState;  
     this.userState = userState;
 
     // Initialize services
@@ -58,7 +58,7 @@ class RestaurantBot extends ActivityHandler {
         if (text.startsWith('logout')) return await this.authService.logoutUser(context);
         if (text.startsWith('signup')) return await this.authService.signupUser(context);
   
-        await context.sendActivity("🤖 Try:\n- `search Chinese`\n- `menu for Dominos`\n- `book reservation at Pizza Hut`");
+        await context.sendActivity(" Try:\n- `search Chinese`\n- `menu for Dominos`\n- `book reservation at Pizza Hut`");
   
         await next();
       })

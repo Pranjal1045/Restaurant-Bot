@@ -27,7 +27,7 @@ class SearchService {
     const [rows] = await db.query(sql, params);
 
     if (!rows.length) {
-      return await context.sendActivity("❌ No matching restaurants found. Try keywords like `Indian`, `Chinese`, `Delhi`, or `medium`.");
+      return await context.sendActivity(" No matching restaurants found. Try keywords like `Indian`, `Chinese`, `Delhi`, or `medium`.");
     }
 
     const cards = rows.map(r => CardFactory.heroCard(

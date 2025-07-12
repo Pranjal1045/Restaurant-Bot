@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 const app = express();
-// ✅ Place an order
+//  Place an order
 router.post('/place', async (req, res) => {
   const { user_id, restaurant_id, order_type, items } = req.body;
 
@@ -46,7 +46,7 @@ router.post('/place', async (req, res) => {
   }
 });
 
-// ✅ Track an order
+//  Track an order
 router.get('/track/:orderId', async (req, res) => {
   const { orderId } = req.params;
 
@@ -74,7 +74,7 @@ router.get('/track/:orderId', async (req, res) => {
   }
 });
 
-// ✅ Cancel an order
+//  Cancel an order
 router.delete('/:orderId', async (req, res) => {
   const { orderId } = req.params;
   try {

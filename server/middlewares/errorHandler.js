@@ -4,8 +4,8 @@ module.exports = function errorHandler(fn) {
         await fn(context, next);
       } catch (err) {
         console.error(" [Global Error]:", err);
-        await context.sendActivity(`❌ Error: ${error.message}`);
-        //await context.sendActivity("⚠️ An unexpected error occurred. Please try again.");
+        await context.sendActivity(` Error: ${error.message}`);
+        //await context.sendActivity(" An unexpected error occurred. Please try again.");
       }
     };
   };

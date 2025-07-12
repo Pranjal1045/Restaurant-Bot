@@ -28,14 +28,14 @@ class AuthService {
       const [[user]] = await db.query('SELECT * FROM users WHERE email = ?', [email]);
   
       if (!user) {
-        return await context.sendActivity("❌ Email not registered. Try signing up.");
+        return await context.sendActivity(" Email not registered. Try signing up.");
       }
   
       //  Compare hashed password
       const isMatch = await bcrypt.compare(password, user.password);
   
       if (!isMatch) {
-        return await context.sendActivity("❌ Incorrect password. Try again.");
+        return await context.sendActivity(" Incorrect password. Try again. ");
       }
   
       //  Generate JWT
@@ -45,7 +45,7 @@ class AuthService {
       await this.userAccessor.set(context, { ...user, token });
       await this.conversationState.saveChanges(context);
   
-      await context.sendActivity(`✅ Login successful! Welcome back, *${user.name}*.\n Your token: ${token}`);
+      await context.sendActivity(` Login successful! Welcome back, *${user.name}*.\n Your token: ${token}`);
     } catch (error) {
       console.error(" Login error:", error);
       await context.sendActivity(" An error occurred during login.");
@@ -78,12 +78,11 @@ class AuthService {
       const user = { id: result.insertId, name, email };
       await this.userAccessor.set(context, user);
       await this.conversationState.saveChanges(context);
-      await context.sendActivity(`🎉 Signup successful! Welcome, *${name}*! You're now logged in.`);
+      await context.sendActivity(` Signup successful! Welcome, *${name}*! You're now logged in.`);
     } catch (error) {
-      console.error("❌ Signup error:", error);
+      console.error(" Signup error:", error);
       await context.sendActivity(" An error occurred during signup.");
     }
   }
 }
-
 module.exports = AuthService;
